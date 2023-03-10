@@ -8,7 +8,6 @@ export const useStyles = makeStyles(() => ({
     flexDirection: "column",
   },
   searchQueryContainer: {
-    border: "1px solid red",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -16,7 +15,6 @@ export const useStyles = makeStyles(() => ({
     flexDirection: "column",
   },
   searchResultContainer: {
-    border: "1px solid green",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -31,5 +29,16 @@ export const useStyles = makeStyles(() => ({
   },
   searchButton: {
     marginTop: "10px",
+  },
+  searchHeading: {
+    margin: "10px",
+  },
+  recordList: {
+    borderRadius: "2px",
+    padding: "5px",
+    cursor: "pointer",
+    "&:hover,&:focus": {
+      backgroundColor: "lightgray",
+    },
   },
 }));

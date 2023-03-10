@@ -7,17 +7,21 @@ import { useStyles } from "./styles";
 export const SearchContainer = () => {
   const styles = useStyles();
   const [searchQuery, setSearchQuery] = useState("");
-
-  console.log(searchQuery, "searchQuery");
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    clearSearchQuery();
     setSearchQuery(e.target.value);
+  };
+
+  const clearSearchQuery = () => {
+    setSearchKeyword("");
   };
 
   const handleOnSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    e.stopPropagation();
-    console.log(searchQuery, "searchQuery");
+
+    setSearchKeyword(searchQuery);
   };
   return (
     <Container className={styles.searchContainer}>
@@ -26,7 +30,9 @@ export const SearchContainer = () => {
         handleOnChange={handleOnChange}
         onSubmit={handleOnSubmit}
       />
-      <SearchResultContainer />
+      {searchKeyword.length > 0 && (
+        <SearchResultContainer query={searchQuery} />
+      )}
     </Container>
   );
 };

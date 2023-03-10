@@ -1,5 +1,5 @@
-import { Box, Button, Container, Input, Typography } from "@material-ui/core";
-import React, { ChangeEventHandler, useState } from "react";
+import { Button, Container, Input, Typography } from "@material-ui/core";
+import { ChangeEventHandler } from "react";
 import { useStyles } from "./styles";
 
 interface Props {
@@ -17,7 +17,9 @@ export const SearchQueryContainer = ({
 
   return (
     <Container className={styles.searchQueryContainer}>
-      <Typography> Search any keyword</Typography>
+      <Typography variant="h3" className={styles.searchHeading}>
+        Search any keyword
+      </Typography>
 
       <form className={styles.form} onSubmit={onSubmit}>
         <Input

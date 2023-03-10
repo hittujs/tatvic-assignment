@@ -14,7 +14,7 @@ export const DashboardContainer = () => {
 
   function handleCallback(res: any) {
     const user = jwt_decode(res.credential);
-    console.log(user, "user cred auth");
+
     // @ts-ignore
     const { email, name, picture } = user;
     dispatch(loginUser({ email, name, picture }));
