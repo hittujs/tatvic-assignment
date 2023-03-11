@@ -23,10 +23,23 @@ export const useStyles = makeStyles(() => ({
     flexDirection: "column",
     color: "black",
     height: "99vh",
-    border: "1px solid red",
   },
   tabPanelContent: {
     border: "1px solid black",
     height: "93vh",
+  },
+  tabList: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: "10%",
+  },
+  card: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  cardContent: {
+    marginRight: "20px",
   },
 }));
