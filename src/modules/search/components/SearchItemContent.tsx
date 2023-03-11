@@ -1,11 +1,10 @@
 import { Typography } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchItem } from "../hooks/useSearchItem";
 
 const SearchItemContent = () => {
   const { data } = useSearchItem();
   const [content, setContent] = useState([]);
-  const [title, setTitle] = useState("");
 
   const extractAPIContents = (data: any) => {
     const { pages } = data?.query;
@@ -14,9 +13,11 @@ const SearchItemContent = () => {
   };
 
   useEffect(() => {
-    const apiData = extractAPIContents(data);
-    //   @ts-ignore
-    setContent(apiData);
+    if (data?.query?.pages) {
+      const apiData = extractAPIContents(data);
+      //   @ts-ignore
+      setContent(apiData);
+    }
   }, [data]);
 
   return (

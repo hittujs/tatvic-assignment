@@ -7,6 +7,8 @@ import { Provider as ReduxProvider } from "react-redux";
 import { createStore } from "./store";
 import { ThemeProvider } from "@material-ui/core";
 import { theme } from "./theme";
+import { Topbar } from "./modules/ui-core/components/Topbar";
+import AuthCheck from "./modules/ui-core/components/AuthCheck";
 
 const store = createStore();
 const queryClient = new QueryClient();
@@ -20,6 +22,8 @@ root.render(
       <ReduxProvider store={store}>
         <QueryClientProvider client={queryClient}>
           <ThemeProvider theme={theme}>
+            <AuthCheck />
+            <Topbar />
             <App />
           </ThemeProvider>
         </QueryClientProvider>
