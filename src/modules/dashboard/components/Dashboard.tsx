@@ -3,6 +3,7 @@ import { Container, Tab, Tabs } from "@material-ui/core";
 import { TabPanel } from "./TabPanel";
 import { useStyles } from "./styles";
 import ScoreCard from "./ScoreCard";
+import { SearchChart } from "./Chart";
 
 export const Dashboard = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -37,7 +38,7 @@ export const Dashboard = () => {
         <ScoreCard startTime={3600000} />
       </TabPanel>
       <TabPanel value={tabIndex} index={3}>
-        Charts
+        <SearchChart />
       </TabPanel>
     </Container>
   );
