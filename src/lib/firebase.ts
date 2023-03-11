@@ -1,7 +1,8 @@
+import { getAPIKey } from "config";
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD9HZjfm591Z98S9JCa_QFo1WZX4B0qiJw",
+  apiKey: getAPIKey(),
   authDomain: "tatvic-assignment.firebaseapp.com",
   projectId: "tatvic-assignment",
   storageBucket: "tatvic-assignment.appspot.com",

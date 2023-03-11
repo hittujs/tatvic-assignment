@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { useStyles } from "./styles";
+import { v4 as uuidv4 } from "uuid";
 
 interface Props {
   scoreData: any;
@@ -17,6 +18,12 @@ interface Props {
 
 const Card = ({ scoreData }: Props) => {
   const styles = useStyles();
+
+  const showDateAndTime = (time: number) => {
+    const date = new Date(time).toString();
+    return date.split("GMT")[0];
+  };
+
   return (
     <Box className={styles.card}>
       <TableContainer component={Paper}>
@@ -30,12 +37,15 @@ const Card = ({ scoreData }: Props) => {
           </TableHead>
           <TableBody>
             {scoreData.map((row: any) => (
-              <TableRow key={row.keyword}>
+              <TableRow key={uuidv4()}>
                 <TableCell align="center" scope="row">
                   {row.keyword}
                 </TableCell>
                 <TableCell align="center">{row.numberOfHits}</TableCell>
-                <TableCell align="center">{row.time}</TableCell>
+                <TableCell align="center">
+                  {/*  @ts-ignore */}
+                  <span>{showDateAndTime(row.time)}</span>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -1,12 +1,13 @@
-import { Box, Container, Tab, Tabs, Typography } from "@material-ui/core";
+import { Box, Container, Typography } from "@material-ui/core";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoggedInUser, isUserLoggedIn, loginUser } from "../redux";
 import { useStyles } from "./styles";
 import { Dashboard } from "./Dashboard";
+import { getClientId } from "config";
 
-export const DashboardContainer = () => {
+const DashboardContainer = () => {
   const styles = useStyles();
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
@@ -23,8 +24,7 @@ export const DashboardContainer = () => {
   useEffect(() => {
     // @ts-ignore
     google.accounts.id.initialize({
-      client_id:
-        "1085632692071-pgrrgnea45a3hua290slfjf7o6hohehm.apps.googleusercontent.com",
+      client_id: getClientId(),
       callback: handleCallback,
     });
     // @ts-ignore
@@ -51,3 +51,5 @@ export const DashboardContainer = () => {
     </>
   );
 };
+
+export default DashboardContainer;

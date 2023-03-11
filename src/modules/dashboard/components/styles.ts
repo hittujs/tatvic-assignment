@@ -11,7 +11,6 @@ export const useStyles = makeStyles(() => ({
     color: "black",
     height: "100vh",
     lineHeight: "28px",
-    border: "1px solid red",
   },
   loginText: {
     marginBottom: "10px",
@@ -25,7 +24,6 @@ export const useStyles = makeStyles(() => ({
     height: "99vh",
   },
   tabPanelContent: {
-    border: "1px solid black",
     height: "93vh",
   },
   tabList: {

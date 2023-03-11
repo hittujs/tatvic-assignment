@@ -24,8 +24,6 @@ export const SearchChart = () => {
 
   const filterDataByRange = (data: any, startTime: number, endTime: number) => {
     const dataDays = Object.values(data);
-    console.log(dataDays, "dataDays");
-    console.log(startTime, endTime, "start-end");
     return dataDays.filter(
       // @ts-ignore
       (record) =>

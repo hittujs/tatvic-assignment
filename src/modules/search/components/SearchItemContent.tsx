@@ -1,5 +1,6 @@
 import { Typography } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useSearchItem } from "../hooks/useSearchItem";
 
 const SearchItemContent = () => {
@@ -24,7 +25,7 @@ const SearchItemContent = () => {
     <div>
       <Typography></Typography>
       {content?.map((data) => (
-        <div dangerouslySetInnerHTML={{ __html: data }} />
+        <div key={uuidv4()} dangerouslySetInnerHTML={{ __html: data }} />
       ))}
     </div>
   );

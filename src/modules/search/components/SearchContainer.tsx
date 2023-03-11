@@ -4,7 +4,7 @@ import { SearchQueryContainer } from "./SearchQueryContainer";
 import { SearchResultContainer } from "./SearchResultContainer";
 import { useStyles } from "./styles";
 
-export const SearchContainer = () => {
+const SearchContainer = () => {
   const styles = useStyles();
   const [searchQuery, setSearchQuery] = useState("");
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -36,3 +36,5 @@ export const SearchContainer = () => {
     </Container>
   );
 };
+
+export default SearchContainer;

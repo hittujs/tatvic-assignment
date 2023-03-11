@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
   searchContainer: {
     display: "flex",
     alignItems: "center",
@@ -32,6 +32,7 @@ export const useStyles = makeStyles(() => ({
   },
   searchHeading: {
     margin: "10px",
+    color: theme.palette.primary.dark,
   },
   recordList: {
     borderRadius: "2px",
