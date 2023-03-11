@@ -19,8 +19,19 @@ const useLast7Days = () => {
     return result;
   };
 
+  const dateRange = {
+    0: Date.now() - 7 * 86400000,
+    1: Date.now() - 6 * 86400000,
+    2: Date.now() - 5 * 86400000,
+    3: Date.now() - 4 * 86400000,
+    4: Date.now() - 3 * 86400000,
+    5: Date.now() - 2 * 86400000,
+    6: Date.now() - 1 * 86400000,
+  };
+
   return {
     Last7Days,
+    dateRange,
   };
 };
 
