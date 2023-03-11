@@ -1,4 +1,13 @@
-import { Box, Typography } from "@material-ui/core";
+import {
+  Box,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@material-ui/core";
 import React from "react";
 import { useStyles } from "./styles";
 
@@ -9,23 +18,30 @@ interface Props {
 const Card = ({ scoreData }: Props) => {
   const styles = useStyles();
   return (
-    <>
-      {scoreData.map((keyword: any, index: number) => {
-        return (
-          <Box className={styles.card} key={index}>
-            <Typography className={styles.cardContent} variant="h6">
-              {keyword.keyword}
-            </Typography>
-            <Typography className={styles.cardContent} variant="h6">
-              {keyword.numberOfHits}
-            </Typography>
-            <Typography className={styles.cardContent} variant="h6">
-              {keyword.time}
-            </Typography>
-          </Box>
-        );
-      })}
-    </>
+    <Box className={styles.card}>
+      <TableContainer component={Paper}>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">Keyword</TableCell>
+              <TableCell align="center">Number of Hits</TableCell>
+              <TableCell align="center">Time</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {scoreData.map((row: any) => (
+              <TableRow key={row.keyword}>
+                <TableCell align="center" scope="row">
+                  {row.keyword}
+                </TableCell>
+                <TableCell align="center">{row.numberOfHits}</TableCell>
+                <TableCell align="center">{row.time}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
   );
 };
 
